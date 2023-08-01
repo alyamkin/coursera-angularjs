@@ -1,0 +1,27 @@
+body {
+  font-size: 1.2em;
+}
+#list1,
+#list2 {
+  float: left;
+}
+#list2 {
+  margin-left: 40px;
+}
+
+.error {
+  color: red;
+}
+
+.posts-wrapper {
+  display: flex;
+}
+
+.posts-wrapper > * {
+  flex: 1;
+}
+
+.comments-list {
+  margin-bottom: 10px;
+  border-bottom: 2px solid coral;
+}

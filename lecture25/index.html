@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="MenuCategoriesApp">
+  <head>
+    <meta charset="utf-8" />
+    <script src="/lib/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Using $http Service</title>
+  </head>
+  <body>
+    <h1>Using $http Service</h1>
+
+    <div ng-controller="PostsController as posts">
+      <div class="posts-wrapper">
+        
+        <div class="posts-list">
+          <h3>List of Posts</h3>
+
+          <ul>
+            <li ng-repeat="post in posts.postCollection">
+              (<a href="" ng-click="posts.showPostComments(post.id);"
+                >{{ post.id }}</a
+              >) {{ post.title }}
+            </li>
+          </ul>
+        </div>
+        <div class=comments"">
+          <h3>Comments List</h3>
+          <div class="comments-list" ng-repeat="comment in posts.postComments">
+            <b>Name:</b> {{ comment.name }}<br>
+            <b>Email:</b> {{ comment.email }}<br>
+            <b>Comment:</b> {{ comment.body }}<br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
