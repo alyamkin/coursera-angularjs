@@ -7,25 +7,40 @@
 
   CounterController.$inject = ['$scope'];
   function CounterController($scope) {
-    $scope.onceCounter = 0;
-    $scope.counter = 0;
-    $scope.name = 'Andrey';
+    const ctr = this;
 
-    $scope.showNumberOfWatchers = function () {
+    ctr.onceCounter = 0;
+    ctr.counter = 0;
+    ctr.name = 'Andrey';
+
+    ctr.showNumberOfWatchers = function () {
       console.log('# of watchers', $scope.$$watchersCount);
+      console.log('# of watchers', $scope);
     };
 
-    $scope.countOnce = function () {
-      $scope.onceCounter = 1;
+    ctr.countOnce = function () {
+      console.log('Call function');
+      ctr.onceCounter = 1;
     };
 
-    $scope.upCounter = function () {
-      $scope.counter++;
+    ctr.upCounter = function () {
+      ctr.counter++;
     };
 
     $scope.$watch(function () {
       console.log('Digest Loop Fired!');
     });
+
+    console.log($scope);
+
+    document
+      .querySelector('#upCounterBtn')
+      .addEventListener('click', function (e) {
+        $scope.$apply(function () {
+          ctr.counter++;
+          console.log(ctr.counter);
+        });
+      });
 
     // $scope.$watch('onceCounter', function (newValue, oldValue) {
     //   console.log('onceCounter old value: ', oldValue);
