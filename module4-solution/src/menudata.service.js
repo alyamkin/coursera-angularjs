@@ -13,6 +13,14 @@
 
       return response;
     };
-    console.log('Hello world');
+
+    service.getItemsForCategory = function (categoryShortName) {
+      const response = $http({
+        method: 'GET',
+        url: `https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/${categoryShortName}.json`,
+      });
+
+      return response;
+    };
   }
 })();
